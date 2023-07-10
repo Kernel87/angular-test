@@ -1,0 +1,31 @@
+<div class="vehicle__container">
+  <header class="vehicle__container_header">Available Vehicles</header>
+  <div class="vehicle__container_search">
+    <app-search
+      [ngStyle]="{'width': 100 + '%', display: 'flex'}"
+      [placeholder]="'Vehicle'"
+      [elements]="brands"
+      [classNames]="'search-container'"
+      (sendDetail)="openDetail($event)"
+    ></app-search>
+  </div>
+  <div class="vehicle__container_list">
+    <div *ngIf="isLoading" class="vehicle__container_loading">
+      <app-loading [message]="'Cargando ...'"></app-loading>
+    </div>
+    <div *ngIf="!isLoading" class="vehicle__container_wrapper">
+      <cdk-virtual-scroll-viewport
+        itemSize="50"
+        class="vehicle__container_viewport"
+      >
+        <app-list
+          *cdkVirtualFor="let brand of brands"
+          class="item-brand"
+          [brand]="brand"
+          [routerLink]="'./detail'"
+          (sendData)="openDetail($event)"
+        ></app-list>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+</div>

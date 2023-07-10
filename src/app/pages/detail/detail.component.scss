@@ -1,0 +1,46 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &__header {
+    &_container {
+      display: flex;
+      height: 10%;
+    }
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(1, 131, 193);
+    color: #fff;
+    font-size: 2rem;
+  }
+  &__wrapper {
+    height: 90%;
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+  &__types {
+    display: flex;
+    flex-direction: column;
+    height: 45%;
+    width: 50%;
+    padding: 1.5rem;
+    &_viewport {
+      width: 100%;
+      height: 400px;
+    }
+  }
+  &__models {
+    height: 45%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    &_viewport {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}

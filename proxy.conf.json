@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://vpic.nhtsa.dot.gov/api",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

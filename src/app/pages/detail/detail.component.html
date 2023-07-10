@@ -1,0 +1,24 @@
+<div class="detail">
+  <div class="detail__header_container">
+    <header class="detail__header">{{ title }}</header>
+  </div>
+  <div *ngIf="isLoading" class="detail__loading detail__loading--show-loading">
+    <app-loading [message]="'Cargando ...'"></app-loading>
+  </div>
+  <div class="detail__wrapper">
+    <div *ngIf="!isLoading" class="detail__types detail__types--hide-loading">
+      <h1>{{ typeTitle }}</h1>
+      <cdk-virtual-scroll-viewport itemSize="20" class="detail__types_viewport">
+        <div *cdkVirtualFor="let type of types">{{ type.VehicleTypeName }}</div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="detail__models">
+      <h1>{{ modelTitle }}</h1>
+      <cdk-virtual-scroll-viewport itemSize="20" class="detail__models_viewport">
+        <div *cdkVirtualFor="let model of models">
+          {{ model?.Make_Name }} {{ model?.Model_Name }}
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+</div>

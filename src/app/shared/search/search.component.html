@@ -1,0 +1,27 @@
+<form class="vehicle__container_form">
+  <mat-form-field class="vehicle__container_field">
+    <mat-label>{{placeholder}}</mat-label>
+    <input
+      type="text"
+      placeholder="Seleccionar"
+      aria-label="Brand"
+      matInput
+      [formControl]="searchControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      class="vehicle__container_complete"
+    >
+    <cdk-virtual-scroll-viewport itemSize="10" class="vehicle__container_list">
+      <mat-option
+        *cdkVirtualFor="let option of filteredOptions | async"
+        [value]="option.MakeName"
+        (click)="openDetail(option.MakeId)"
+      >
+        {{ option.MakeName }}
+      </mat-option>
+    </cdk-virtual-scroll-viewport>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
